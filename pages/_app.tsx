@@ -14,6 +14,5 @@ function MyApp({ Component, pageProps }) {
     </QueryClientProvider>
   );
 }
-s;
 
 export default MyApp;
