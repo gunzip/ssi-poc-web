@@ -35,7 +35,7 @@ const About: NextPage = () => {
       />
       <div>
         Back to{" "}
-        <Link href="/" as={BACKEND_URL + "/"}>
+        <Link href="/" as={"/"}>
           <a>INDEX</a>
         </Link>
       </div>

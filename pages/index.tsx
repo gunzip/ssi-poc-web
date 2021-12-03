@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <div>
       Hello World.{" "}
-      <Link href="/about" as={BACKEND_URL + "/about"} passHref>
+      <Link href="/about" as={"/about"} passHref>
         <button>About</button>
       </Link>
     </div>
