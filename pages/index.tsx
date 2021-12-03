@@ -5,10 +5,12 @@ import { BACKEND_URL } from "../config";
 const Home: NextPage = () => {
   return (
     <div>
-      Hello World.{" "}
-      <Link href="/about" as={"/about"} passHref>
-        <button>About</button>
-      </Link>
+      <p>Hello World.</p>
+      <p>
+        <Link href="/request" as="/request" passHref>
+          <button>REQUEST</button>
+        </Link>
+      </p>
     </div>
   );
 };
