@@ -11,6 +11,9 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
 
+    env:
+      NODE_ENV: production
+
     strategy:
       matrix:
         node-version: [14.x]
