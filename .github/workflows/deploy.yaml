@@ -40,7 +40,7 @@ jobs:
 
       - name: Build
         run: |
-          npm i --legacy-peer-deps
+          npm i --legacy-peer-deps --production=false
           npm run build
           npm run export
 
