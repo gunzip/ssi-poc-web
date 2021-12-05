@@ -10,16 +10,12 @@ const Home: NextPage = () => {
   const mutation = useMutation(
     "authres",
     async () => {
-      const response = await fetch(
-        "https://webhook.site/79636c84-8cb0-4330-b84d-974786f39119",
-        {
-          method: "POST",
-        }
-      );
-      if (response.ok) {
-        return response.text();
+      const response = await fetch("http://localhost/signup");
+      console.log(response.headers);
+      if (response.status === 200) {
+        return response.headers.get("location");
       } else {
-        throw new Error("ERROR");
+        throw new Error(`ERR: ${response.status.toString()}`);
       }
     },
     {
@@ -34,7 +30,7 @@ const Home: NextPage = () => {
     <div>
       <p>Lorem ipsum...</p>
       {mutation.isError && (
-        <h5 onClick={() => mutation.reset()}>{mutation.error}</h5>
+        <h5 onClick={() => mutation.reset()}>{mutation.error.toString()}</h5>
       )}
       {mutation.isLoading && <p>Requesting auth...</p>}
       <p>
