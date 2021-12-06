@@ -10,10 +10,11 @@ const Home: NextPage = () => {
   const mutation = useMutation(
     "authres",
     async () => {
-      const response = await fetch("http://localhost/signup");
-      console.log(response.headers);
+      const response = await fetch(
+        " https://css8dhhvhg.execute-api.eu-south-1.amazonaws.com/test/signup "
+      );
       if (response.status === 200) {
-        return response.headers.get("location");
+        return response.json().then((res) => res.authenticationRequest);
       } else {
         throw new Error(`ERR: ${response.status.toString()}`);
       }
