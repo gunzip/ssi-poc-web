@@ -27,9 +27,9 @@ const Request: NextPage = () => {
   }, []);
 
   useAsync(async () => {
-    const parsedAuthRes = await parseAuthenticationRequestURI(authRes);
-    console.log(parsedAuthRes);
-    const buffer = image(JSON.stringify(parsedAuthRes), { type: "png" });
+    // const parsedAuthRes = await parseAuthenticationRequestURI(authRes);
+    // console.log(parsedAuthRes);
+    const buffer = image(JSON.stringify(authRes), { type: "png" });
     const qrImg = await streamToString(buffer);
     setQrCode(qrImg);
   });
