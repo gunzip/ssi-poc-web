@@ -76,7 +76,10 @@ const Home: NextPage = () => {
         </Box>
       </VStack>
       <Box>
-        <chakra.img src="/avis-sangue.jpeg" borderRadius="2xl" />
+        <chakra.img
+          src={`${process.env.NEXT_BASE_PATH}/avis-sangue.jpeg`}
+          borderRadius="2xl"
+        />
       </Box>
     </HStack>
   );
