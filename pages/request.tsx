@@ -1,11 +1,12 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { image } from "qr-image";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useAsync, useLocalStorage } from "react-use";
-import { parseAuthenticationRequestURI } from "../src/OP";
+import { Box, VStack } from "@chakra-ui/layout";
+import { chakra } from "@chakra-ui/system";
+import { HStack } from "@chakra-ui/react";
 
 const streamToString = (stream: NodeJS.ReadableStream): Promise<string> => {
   const chunks: any[] = [];
@@ -23,7 +24,7 @@ const Request: NextPage = () => {
   const [authRes] = useLocalStorage<string>("auth");
 
   useEffect(() => {
-    setTimeout(() => setDelayed(true), 5000);
+    setTimeout(() => setDelayed(true), 20000);
   }, []);
 
   useAsync(async () => {
@@ -56,28 +57,29 @@ const Request: NextPage = () => {
   );
 
   return (
-    <div>
-      <p>AUTHRES: {authRes}</p>
+    <HStack spacing={10}>
+      <VStack pt={20} spacing={10} width={["100%", "100%", "100%", "30%"]}>
+        {/* <p>AUTHRES: {authRes}</p>
       <p>
         {query.isLoading && `loading...`}
         {query.isError && `ERROR: ${query.error}`}
         {query.data}
-      </p>
-      <p>
-        {qrCode && (
-          <img
-            src={`data:image/png;base64,${qrCode}`}
-            style={{ maxWidth: "300px" }}
-            alt="qrcode"
-          />
-        )}
-      </p>
-      <p>
-        <Link href="/" as="/">
-          <a>INDEX</a>
-        </Link>
-      </p>
-    </div>
+      </p>*/}
+        <Box>
+          {qrCode && (
+            <img
+              src={`data:image/png;base64,${qrCode}`}
+              style={{ maxWidth: "300px" }}
+              alt="qrcode"
+            />
+          )}
+        </Box>
+      </VStack>
+
+      <Box>
+        <chakra.img src="/avis-sangue.jpeg" borderRadius="2xl" />
+      </Box>
+    </HStack>
   );
 };
 
