@@ -6,6 +6,7 @@ import {
   BellIcon,
 } from "@chakra-ui/icons";
 import { Heading } from "@chakra-ui/react";
+import { Helmet } from "react-helmet";
 
 export default function Layout({ children }) {
   return (
@@ -37,8 +38,10 @@ export default function Layout({ children }) {
           <HamburgerIcon w={8} h={8} />
         </HStack>
       </Flex>
-
       <main>{children}</main>
+      <Helmet>
+        <meta name="robots" content="noindex,nofollow" />
+      </Helmet>
     </VStack>
   );
 }
