@@ -19,7 +19,12 @@ export default function Layout({ children }) {
     >
       <Flex>
         <Box>
-          <img src="/logo-avis.svg" alt="AVIS" width="115" height="34" />
+          <img
+            src={`${process.env.NEXT_BASE_PATH}/logo-avis.svg`}
+            alt="AVIS"
+            width="115"
+            height="34"
+          />
           <Heading fontSize="sm" mt="2">
             demo website
           </Heading>
