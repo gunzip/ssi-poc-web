@@ -8,13 +8,10 @@ const Success: NextPage = () => {
     <HStack spacing={10}>
       <VStack pt={20} spacing={10} width={["100%", "100%", "100%", "30%"]}>
         <img
-          src={`${process.env.NEXT_BASE_PATH}/vampire.jpeg`}
+          src={`${process.env.NEXT_BASE_PATH ?? ""}/vampire.jpeg`}
           width="400"
           height="350"
         />
-        <Link href="/" as="/">
-          <a>BACK</a>
-        </Link>
       </VStack>
     </HStack>
   );

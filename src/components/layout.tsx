@@ -5,7 +5,7 @@ import {
   SearchIcon,
   BellIcon,
 } from "@chakra-ui/icons";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Link } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
 
 export default function Layout({ children }) {
@@ -20,12 +20,14 @@ export default function Layout({ children }) {
     >
       <Flex>
         <Box>
-          <img
-            src={`${process.env.NEXT_BASE_PATH}/logo-avis.svg`}
-            alt="AVIS"
-            width="115"
-            height="34"
-          />
+          <Link href="/">
+            <img
+              src={`${process.env.NEXT_BASE_PATH ?? ""}/logo-avis.svg`}
+              alt="Home"
+              width="115"
+              height="34"
+            />
+          </Link>
           <Heading fontSize="sm" mt="2">
             demo website
           </Heading>

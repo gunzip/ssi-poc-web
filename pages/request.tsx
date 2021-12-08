@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { useAsync, useLocalStorage } from "react-use";
 import { Box, VStack } from "@chakra-ui/layout";
 import { chakra } from "@chakra-ui/system";
-import { HStack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
 const streamToString = (stream: NodeJS.ReadableStream): Promise<string> => {
   const chunks: any[] = [];
@@ -57,8 +57,8 @@ const Request: NextPage = () => {
   );
 
   return (
-    <HStack spacing={10}>
-      <VStack pt={20} spacing={10} width={["100%", "100%", "100%", "30%"]}>
+    <Stack spacing={10} direction={["column", "column", "column", "row"]}>
+      <VStack pt={20} spacing={10}>
         {/* <p>AUTHRES: {authRes}</p>
       <p>
         {query.isLoading && `loading...`}
@@ -78,11 +78,11 @@ const Request: NextPage = () => {
 
       <Box>
         <chakra.img
-          src={`${process.env.NEXT_BASE_PATH}/avis-sangue.jpeg`}
+          src={`${process.env.NEXT_BASE_PATH ?? ""}/avis-sangue.jpeg`}
           borderRadius="2xl"
         />
       </Box>
-    </HStack>
+    </Stack>
   );
 };
 

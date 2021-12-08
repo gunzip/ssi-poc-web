@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { useMutation } from "react-query";
 import { useRouter } from "next/router";
 import { useLocalStorage } from "react-use";
-import { Box, Heading, HStack, VStack } from "@chakra-ui/layout";
+import { Box, Heading, Stack, VStack } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { Text } from "@chakra-ui/layout";
 import { chakra } from "@chakra-ui/system";
@@ -33,8 +33,8 @@ const Home: NextPage = () => {
   );
 
   return (
-    <HStack spacing={10}>
-      <VStack pt={20} spacing={10} width={["100%", "100%", "100%", "40%"]}>
+    <Stack spacing={10} direction={["column", "column", "column", "row"]}>
+      <VStack pt={20} spacing={10}>
         {/* mutation.isError && (
         <h5 onClick={() => mutation.reset()}>{mutation.error.toString()}</h5>
       )}
@@ -77,11 +77,11 @@ const Home: NextPage = () => {
       </VStack>
       <Box>
         <chakra.img
-          src={`${process.env.NEXT_BASE_PATH}/avis-sangue.jpeg`}
+          src={`${process.env.NEXT_BASE_PATH || ""}/avis-sangue.jpeg`}
           borderRadius="2xl"
         />
       </Box>
-    </HStack>
+    </Stack>
   );
 };
 
