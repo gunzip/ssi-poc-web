@@ -77,7 +77,7 @@ const Home: NextPage = () => {
       </VStack>
       <Box>
         <chakra.img
-          src={`${process.env.NEXT_PUBLIC_ASE_PATH || ""}/avis-sangue.jpeg`}
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/avis-sangue.jpeg`}
           borderRadius="2xl"
         />
       </Box>

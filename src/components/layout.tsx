@@ -20,7 +20,7 @@ export default function Layout({ children }) {
     >
       <Flex>
         <Box>
-          <Link href="/">
+          <Link href={`/}`}>
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logo-avis.svg`}
               alt="Home"
