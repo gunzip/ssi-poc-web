@@ -39,7 +39,7 @@ const Home: NextPage = () => {
         <h5 onClick={() => mutation.reset()}>{mutation.error.toString()}</h5>
       )}
       {mutation.isLoading && <p>Requesting auth...</p> */}
-        <Heading as="h3" size="xl" fontWeight="bold">
+        <Heading as="h3" size="xl" fontWeight="bold" maxWidth={500}>
           Donare il sangue è un gesto semplice che può{" "}
           <Text as="span" color="avis.strong">
             salvare la vita
@@ -77,7 +77,7 @@ const Home: NextPage = () => {
       </VStack>
       <Box>
         <chakra.img
-          src={`${process.env.NEXT_BASE_PATH || ""}/avis-sangue.jpeg`}
+          src={`${process.env.NEXT_PUBLIC_ASE_PATH || ""}/avis-sangue.jpeg`}
           borderRadius="2xl"
         />
       </Box>

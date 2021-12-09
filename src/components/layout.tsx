@@ -22,7 +22,7 @@ export default function Layout({ children }) {
         <Box>
           <Link href="/">
             <img
-              src={`${process.env.NEXT_BASE_PATH ?? ""}/logo-avis.svg`}
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logo-avis.svg`}
               alt="Home"
               width="115"
               height="34"
