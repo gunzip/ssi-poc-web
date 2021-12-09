@@ -7,6 +7,7 @@ import { useAsync, useLocalStorage } from "react-use";
 import { Box, VStack } from "@chakra-ui/layout";
 import { chakra } from "@chakra-ui/system";
 import { Stack } from "@chakra-ui/react";
+import { assetPrefix } from "../config";
 
 const streamToString = (stream: NodeJS.ReadableStream): Promise<string> => {
   const chunks: any[] = [];
@@ -78,7 +79,7 @@ const Request: NextPage = () => {
 
       <Box>
         <chakra.img
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/avis-sangue.jpeg`}
+          src={`${assetPrefix}/avis-sangue.jpeg`}
           borderRadius="2xl"
         />
       </Box>

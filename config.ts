@@ -1,5 +1,3 @@
-export const BACKEND_URL =
-  process.env.NODE_ENV === "production" ? "ssi-poc-web" : "";
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-export const ASSETS_PREFIX =
-  process.env.NODE_ENV === "production" ? "ssi-poc-web" : "";
+export { assetPrefix };

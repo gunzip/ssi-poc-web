@@ -7,6 +7,7 @@ import { Button } from "@chakra-ui/button";
 import { Text } from "@chakra-ui/layout";
 import { chakra } from "@chakra-ui/system";
 import { Spinner } from "@chakra-ui/react";
+import { assetPrefix } from "../config";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -77,7 +78,7 @@ const Home: NextPage = () => {
       </VStack>
       <Box>
         <chakra.img
-          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/avis-sangue.jpeg`}
+          src={`${assetPrefix}/avis-sangue.jpeg`}
           borderRadius="2xl"
         />
       </Box>
