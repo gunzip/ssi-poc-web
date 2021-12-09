@@ -21,7 +21,7 @@ export default function Layout({ children }) {
     >
       <Flex>
         <Box>
-          <Link href={`/}`}>
+          <Link href={`/`}>
             <img
               src={`${assetPrefix}/logo-avis.svg`}
               alt="Home"
