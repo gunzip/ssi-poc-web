@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { useAsync, useLocalStorage } from "react-use";
 import { Box, VStack } from "@chakra-ui/layout";
 import { chakra } from "@chakra-ui/system";
-import { Stack, Text } from "@chakra-ui/react";
+import { Container, Stack, Text } from "@chakra-ui/react";
 import { assetPrefix } from "../config";
 
 const streamToString = (stream: NodeJS.ReadableStream): Promise<string> => {
@@ -36,7 +36,7 @@ const Request: NextPage = () => {
     setQrCode(qrImg);
   });
 
-  const query = useQuery(
+  useQuery(
     "authres",
     async () => {
       const response = await fetch(
@@ -66,7 +66,7 @@ const Request: NextPage = () => {
         {query.isError && `ERROR: ${query.error}`}
         {query.data}
       </p>*/}
-        <Box>
+        <Container centerContent>
           <Text as="p" mb={5} size="m" fontWeight="bold">
             Inquadra il QRCode per autorizzare la richiesta con IO Wallet.
           </Text>
@@ -77,7 +77,7 @@ const Request: NextPage = () => {
               alt="qrcode"
             />
           )}
-        </Box>
+        </Container>
       </VStack>
 
       <Box>
