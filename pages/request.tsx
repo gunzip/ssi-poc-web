@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { useAsync, useLocalStorage } from "react-use";
 import { Box, VStack } from "@chakra-ui/layout";
 import { chakra } from "@chakra-ui/system";
-import { Stack } from "@chakra-ui/react";
+import { Stack, Text } from "@chakra-ui/react";
 import { assetPrefix } from "../config";
 
 const streamToString = (stream: NodeJS.ReadableStream): Promise<string> => {
@@ -59,7 +59,7 @@ const Request: NextPage = () => {
 
   return (
     <Stack spacing={10} direction={["column", "column", "column", "row"]}>
-      <VStack pt={20} spacing={10}>
+      <VStack pt={5} spacing={10}>
         {/* <p>AUTHRES: {authRes}</p>
       <p>
         {query.isLoading && `loading...`}
@@ -67,6 +67,9 @@ const Request: NextPage = () => {
         {query.data}
       </p>*/}
         <Box>
+          <Text as="p" mb={5} size="m" fontWeight="bold">
+            Inquadra il QRCode per autorizzare la richiesta con IO Wallet.
+          </Text>
           {qrCode && (
             <img
               src={`data:image/png;base64,${qrCode}`}
