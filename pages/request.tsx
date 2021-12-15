@@ -23,6 +23,7 @@ const Request: NextPage = () => {
   const [qrCode, setQrCode] = useState<string>();
   const [delayed, setDelayed] = useState<boolean>(false);
   const [authRes] = useLocalStorage<string>("auth");
+  const [state] = useLocalStorage<string>("state");
 
   useEffect(() => {
     setTimeout(() => setDelayed(true), 20000);
@@ -37,20 +38,22 @@ const Request: NextPage = () => {
   });
 
   useQuery(
-    "authres",
+    ["authres", state],
     async () => {
       const response = await fetch(
-        "https://webhook.site/79636c84-8cb0-4330-b84d-974786f39119"
+        `https://43arh28uwa.execute-api.eu-south-1.amazonaws.com/test/poll/${state}`
       );
       if (response.ok) {
+        console.log(response.status);
         return response.text();
       } else {
+        console.log(response.status);
         throw new Error("ERROR");
       }
     },
     {
       enabled: delayed,
-      refetchInterval: 60000,
+      refetchInterval: 5000,
       onSuccess: () => {
         router.push("/success");
       },
