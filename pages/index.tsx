@@ -8,16 +8,18 @@ import { Text } from "@chakra-ui/layout";
 import { chakra } from "@chakra-ui/system";
 import { Spinner, Container } from "@chakra-ui/react";
 import { assetPrefix } from "../config";
+import { parseJwt } from "../src/jwt";
 
 const Home: NextPage = () => {
   const router = useRouter();
-  const [, setAuthRes] = useLocalStorage("auth");
+  const [, setAuthRes] = useLocalStorage<string>("auth");
+  const [, setReState] = useLocalStorage<string>("state");
 
   const mutation = useMutation(
     "authres",
     async () => {
       const response = await fetch(
-        " https://css8dhhvhg.execute-api.eu-south-1.amazonaws.com/test/signup "
+        "https://43arh28uwa.execute-api.eu-south-1.amazonaws.com/test/signup"
       );
       if (response.status === 200) {
         return response.json().then((res) => res.authenticationRequest);
@@ -28,6 +30,15 @@ const Home: NextPage = () => {
     {
       onSuccess: (data) => {
         setAuthRes(data);
+
+        try {
+          const d = parseJwt(data);
+          console.log(d);
+          setReState(d["state"]);
+        } catch (e) {
+          console.error("Error parsing auth res", e);
+        }
+
         router.push("/request");
       },
     }
