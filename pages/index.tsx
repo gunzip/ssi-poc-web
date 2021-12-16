@@ -9,6 +9,7 @@ import { chakra } from "@chakra-ui/system";
 import { Spinner, Container } from "@chakra-ui/react";
 import { assetPrefix } from "../config";
 import { parseJwt } from "../src/jwt";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -88,6 +89,18 @@ const Home: NextPage = () => {
               </Button>
               <Text as="small" textAlign={"center"}>
                 con IO Wallet
+              </Text>
+              <Text as="small" textAlign={"center"}>
+                o
+              </Text>
+              <Text
+                as="small"
+                textAlign={"center"}
+                color="avis.strong"
+                textDecoration={"underline"}
+                fontWeight={"700"}
+              >
+                <Link href="/book">prenota la tua donazione</Link>
               </Text>
             </>
           )}
